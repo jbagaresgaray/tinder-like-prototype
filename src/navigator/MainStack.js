@@ -17,10 +17,31 @@ const Stack = createNativeStackNavigator();
 
 const MainStack = () => {
   return (
-    <Stack.Navigator>
-      <Stack.Screen name="Onboarding" component={Onboarding} />
-      <Stack.Screen name="CreateAccount" component={CreateAccount} />
-      <Stack.Screen name="MyNumber" component={MyNumber} />
+    <Stack.Navigator initialRouteName="Onboarding">
+      <Stack.Screen
+        name="Onboarding"
+        component={Onboarding}
+        options={{
+          title: "",
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name="CreateAccount"
+        component={CreateAccount}
+        options={{
+          title: "",
+          headerShadowVisible: false,
+        }}
+      />
+      <Stack.Screen
+        name="MyNumber"
+        component={MyNumber}
+        options={{
+          title: "",
+          headerShadowVisible: false,
+        }}
+      />
       <Stack.Screen name="MyCode" component={MyCode} />
       <Stack.Screen name="MyFirstName" component={MyFirstName} />
       <Stack.Screen name="MyBirthDay" component={MyBirthday} />
