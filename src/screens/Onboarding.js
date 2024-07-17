@@ -17,7 +17,7 @@ const Onboarding = ({navigation}) => {
         <AppIcon name="back" size={24} color={"white"} />
         <StatusBar style="auto" />
         <View style={styles.title}>
-          <AppIcon name="fire" width={38.4} height={45.11} />
+          <AppIcon name="fire" color={Color.white} width={38.4} height={45.11} />
           <AppIcon
             name="title"
             color={Color.white}

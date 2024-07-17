@@ -1,15 +1,35 @@
 import { Pressable, StyleSheet, Text, TextInput, View } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 import Color from "../../Style/Color";
 import { LinearGradient } from "expo-linear-gradient";
+import CountryPicker from "react-native-country-picker-modal";
 
 const MyNumber = ({ navigation }) => {
+  const [country, setCountry] = useState(null);
+
+  const onSelect = (selectedCountry) => {
+    setCountry(selectedCountry);
+  };
   return (
     <View style={styles.container}>
       <Text style={styles.MyNumber}>My number is</Text>
 
       <View style={{ flexDirection: "row", gap: 11.08 }}>
-        <TextInput placeholder="KR +82" style={styles.input} />
+        {/* <Text>KR +82</Text> */}
+        <CountryPicker
+          withFlag
+          withFilter
+          withCountryNameButton
+          withAlphaFilter
+          withCallingCode
+          onSelect={onSelect}
+        />
+        {country && (
+          <>
+            <Text>Selected Country: {country.name}</Text>
+            <Text>Selected Country: {country.callingCode}</Text>
+          </>
+        )}
         <TextInput placeholder="00000000000" style={styles.input} />
       </View>
       <Text style={styles.text}>
@@ -20,13 +40,17 @@ const MyNumber = ({ navigation }) => {
           Learn what happens when your number changes.
         </Text>
       </Text>
+
       <LinearGradient
         colors={["#EA4080", "#EE805F"]}
-        start={[1, 1]}
-        end={[0, 0]}
+        start={[0, 0]}
+          end={[1, 1]}
         style={styles.buttonL}
       >
-        <Pressable style={styles.button}>
+        <Pressable
+          onPress={() => navigation.navigate("MyCode")}
+          style={styles.button}
+        >
           <Text style={styles.buttonText}>CONTINUE</Text>
         </Pressable>
       </LinearGradient>

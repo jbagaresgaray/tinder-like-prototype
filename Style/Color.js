@@ -1,9 +1,13 @@
-
 const Color = {
-    white: "#FFFFFF",
+  white: "#FFFFFF",
 
-    black: "#000000",
-    gray: "#828693",
-}
+  black: "#000000",
+  black1: "#444142",
+  gray: "#828693",
+  gray1: "#00000020",
+  gray2: "#68707E",
 
-export default Color
+  yellow: "#F3D87B",
+};
+
+export default Color;

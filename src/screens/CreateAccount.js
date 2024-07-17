@@ -16,8 +16,8 @@ const CreateAccount = ({navigation}) => {
       </Text>
       <LinearGradient
         colors={["#EA4080", "#EE805F"]}
-        start={[1, 1]}
-        end={[0, 0]}
+        start={[0, 0]}
+          end={[1, 1]}
         style={styles.buttonL}
       >
         <Pressable onPress={() => navigation.navigate("MyNumber")} style={styles.button}>
