@@ -2,16 +2,18 @@ import { Pressable, StyleSheet, Text, View } from "react-native";
 import React from "react";
 import Color from "../../../Style/Color";
 import AppIcon from "../../components/AppIcon/AppIcon";
+import Card from "../../../cards/Card";
 
 const Home = () => {
   return (
     <View style={styles.container}>
-      <Text style={styles.ops}>Oops!</Text>
+      <Card />
+      {/* <Text style={styles.ops}>Oops!</Text>
       <Text style={styles.info}>We can no longer find people near you, please try again later</Text>
       <Pressable style={styles.retryView}>
         <AppIcon name="retry" size={26.51} />
         <Text style={styles.retry}>Try again</Text>
-      </Pressable>
+      </Pressable> */}
     </View>
   );
 };
@@ -21,10 +23,11 @@ export default Home;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    paddingHorizontal: 5.04,
     backgroundColor: Color.white,
-    justifyContent: "center",
-    alignItems: "center",
-    paddingHorizontal: 33.93
+    // justifyContent: "center",
+    // alignItems: "center",
+    
   },
   ops: {
     color: Color.black1,

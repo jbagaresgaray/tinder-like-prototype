@@ -3,6 +3,7 @@ import React from "react";
 import * as Progress from "react-native-progress";
 import AppIcon from "../components/AppIcon/AppIcon";
 import Color from "../../Style/Color";
+import Phtotbg from "../components/Phtotbg";
 
 const AddPhotos = ({ navigation }) => {
   return (
@@ -25,56 +26,7 @@ const AddPhotos = ({ navigation }) => {
         <Text style={styles.title}>Add photos</Text>
         <Text style={styles.text}>Add at least 2 photos to continue</Text>
       </View>
-
-      <View
-        style={{
-          marginHorizontal: 50,
-          flexDirection: "row",
-          marginTop: 27,
-          gap: 10,
-        }}
-      >
-        <Pressable
-          style={{
-            borderWidth: 2,
-            borderColor: Color.gray,
-            paddingVertical: 8,
-            borderRadius: 67.18,
-            paddingHorizontal: 12,
-          }}
-        >
-          <Text style={{ textAlign: "center", color: Color.gray }}>
-            90s Kid
-          </Text>
-        </Pressable>
-        <Pressable
-          style={{
-            borderWidth: 2,
-            borderColor: Color.gray,
-            paddingVertical: 8,
-            borderRadius: 67.18,
-            paddingHorizontal: 12,
-          }}
-        >
-          <Text style={{ textAlign: "center", color: Color.gray }}>
-            Harry Potter
-          </Text>
-        </Pressable>
-        <Pressable
-          style={{
-            borderWidth: 2,
-            borderColor: Color.gray,
-            paddingVertical: 8,
-            borderRadius: 67.18,
-            paddingHorizontal: 12,
-          }}
-        >
-          <Text style={{ textAlign: "center", color: Color.gray }}>
-            SoundCloud
-          </Text>
-        </Pressable>
-      </View>
-
+      <Phtotbg />
       <Pressable
         onPress={() => navigation.navigate("WelcomeScreen")}
         style={styles.button}
@@ -105,7 +57,6 @@ const styles = StyleSheet.create({
     color: Color.black,
     fontSize: 38.29,
     fontFamily: "InterSemiBold",
-    // paddingLeft: 50,
     textAlign: "left",
   },
   text: {

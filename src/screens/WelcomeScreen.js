@@ -4,7 +4,7 @@ import Color from "../../Style/Color";
 import AppIcon from "../components/AppIcon/AppIcon";
 import { LinearGradient } from "expo-linear-gradient";
 
-const WelcomeScreen = ({navigation}) => {
+const WelcomeScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -28,7 +28,8 @@ const WelcomeScreen = ({navigation}) => {
             <Text style={styles.boldtext}>Stay safe.</Text>
           </View>
           <Text style={styles.graytext}>
-            Don’t be too quick to give out personal information. Date Safely
+            Don’t be too quick to give out personal information.{" "}
+            <Text style={{textDecorationLine: "underline"}}>Date Safely</Text>
           </Text>
         </View>
         <View>
@@ -53,7 +54,10 @@ const WelcomeScreen = ({navigation}) => {
           end={[0, 0]}
           style={styles.buttonL}
         >
-          <Pressable onPress={() => navigation.navigate("Tutorial")} style={styles.button}>
+          <Pressable
+            onPress={() => navigation.navigate("Tutorial")}
+            style={styles.button}
+          >
             <Text style={styles.buttonText}>I AGREE</Text>
           </Pressable>
         </LinearGradient>

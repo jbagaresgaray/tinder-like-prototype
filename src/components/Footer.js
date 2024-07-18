@@ -4,10 +4,18 @@ import Color from "../../Style/Color";
 import CheckBox from "react-native-check-box";
 
 const Footer = ({ navigation }) => {
+  const [toggleCheckBox, setToggleCheckBox] = useState(false);
   return (
     <View style={styles.container}>
       <View style={styles.container3}>
-        <CheckBox />
+        <CheckBox
+          onClick={() => {
+            setToggleCheckBox(!toggleCheckBox);
+          }}
+          isChecked={toggleCheckBox}
+          checkBoxColor={Color.black}
+          checkedCheckBoxColor={Color.black}
+        />
         <Text style={styles.footertext}>Show my gender on my profile</Text>
       </View>
       <Pressable

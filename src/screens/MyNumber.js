@@ -5,7 +5,15 @@ import { LinearGradient } from "expo-linear-gradient";
 import CountryPicker from "react-native-country-picker-modal";
 
 const MyNumber = ({ navigation }) => {
-  const [country, setCountry] = useState(null);
+  const [country, setCountry] = useState({
+    cca2: "US",
+    currency: ["USD"],
+    flag: "flag-us",
+    name: "United States",
+    region: "Americas",
+    subregion: "North America",
+    callingCode: ["1"],
+  });
 
   const onSelect = (selectedCountry) => {
     setCountry(selectedCountry);
@@ -14,23 +22,39 @@ const MyNumber = ({ navigation }) => {
     <View style={styles.container}>
       <Text style={styles.MyNumber}>My number is</Text>
 
-      <View style={{ flexDirection: "row", gap: 11.08 }}>
-        {/* <Text>KR +82</Text> */}
+      <View
+        style={{
+          alignItems: "center",
+          flexDirection: "row",
+          gap: 11.08,
+        }}
+      >
         <CountryPicker
           withFlag
-          withFilter
-          withCountryNameButton
-          withAlphaFilter
           withCallingCode
           onSelect={onSelect}
+          countryCode={country?.cca2}
+          withCountryNameButton={false}
+          renderFlagButton={(props) => (
+            <Pressable
+              onPress={props.onOpen}
+              style={{ borderBottomWidth: 1, height: "100%" }}
+            >
+              <Text style={styles.callingcode}>
+                {country.cca2} +{country.callingCode}
+              </Text>
+            </Pressable>
+          )}
         />
-        {country && (
+        {/* {country && (
           <>
-            <Text>Selected Country: {country.name}</Text>
-            <Text>Selected Country: {country.callingCode}</Text>
+            <Text>{country.cca2}</Text>
+            <Text>{country.callingCode}</Text>
           </>
-        )}
-        <TextInput placeholder="00000000000" style={styles.input} />
+        )} */}
+        <View style={styles.input}>
+          <TextInput placeholder="00000000000" textAlignVertical="top" keyboardType="numeric" />
+        </View>
       </View>
       <Text style={styles.text}>
         We will send a text with a verification code. Message and data rates may
@@ -44,7 +68,7 @@ const MyNumber = ({ navigation }) => {
       <LinearGradient
         colors={["#EA4080", "#EE805F"]}
         start={[0, 0]}
-          end={[1, 1]}
+        end={[1, 1]}
         style={styles.buttonL}
       >
         <Pressable
@@ -73,6 +97,8 @@ const styles = StyleSheet.create({
   },
   input: {
     borderBottomWidth: 1,
+    flex: 1,
+    fontSize: 15
   },
   text: {
     color: Color.gray,
@@ -96,5 +122,11 @@ const styles = StyleSheet.create({
     fontSize: 18.14,
     fontFamily: "InterBold",
     color: Color.white,
+  },
+  callingcode: {
+    color: Color.black1,
+    fontSize: 15,
+    fontFamily: "InterRegular",
+    borderColor: Color.gray,
   },
 });

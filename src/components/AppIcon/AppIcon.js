@@ -16,6 +16,11 @@ import ColoredProfile from "./icons/ColoredProfile";
 import Settings from "./icons/Settings";
 import Pencil from "./icons/Pencil";
 import Safety from "./icons/Safety";
+import GradientX from "./icons/GradientX";
+import Plus from "./icons/Plus";
+import Information from "./icons/Information";
+import House_outline from "./icons/House_outline";
+import Location_outline from "./icons/Location_outline";
 
 const AppIcon = ({ name = "", size, color, width, height, ...rest }) => {
   const DEFAULT_SIZE = 13;
@@ -65,8 +70,18 @@ const AppIcon = ({ name = "", size, color, width, height, ...rest }) => {
       return <Settings {...getProps()} />;
     case "pencil":
       return <Pencil {...getProps()} />;
-      case "safety":
+    case "safety":
       return <Safety {...getProps()} />;
+    case "gradientx":
+      return <GradientX {...getProps()} />;
+    case "plus":
+      return <Plus {...getProps()} />;
+    case "info":
+      return <Information {...getProps()} />;
+    case "house-outline":
+      return <House_outline {...getProps()} />;
+    case "location-outline":
+      return <Location_outline {...getProps()} />;
   }
 };
 

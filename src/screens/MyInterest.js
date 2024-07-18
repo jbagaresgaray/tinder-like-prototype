@@ -1,9 +1,9 @@
-import { Pressable, StyleSheet, Text, View } from "react-native";
+import { Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
 import React from "react";
 import * as Progress from "react-native-progress";
 import AppIcon from "../components/AppIcon/AppIcon";
 import Color from "../../Style/Color";
-import Footer from "../components/Footer";
+import InterestsChoices from "../components/InterestsChoices";
 
 const MyInterest = ({ navigation }) => {
   return (
@@ -17,24 +17,35 @@ const MyInterest = ({ navigation }) => {
         height={4.7}
         style={styles.bar}
       />
-      <View style={styles.container2}>
-        <Pressable onPress={() => navigation.goBack()}>
-          <AppIcon name="back" color={Color.gray} height={18.14} width={9.07} />
+      <ScrollView>
+        <View style={styles.container2}>
+          <Pressable onPress={() => navigation.goBack()}>
+            <AppIcon
+              name="back"
+              color={Color.gray}
+              height={18.14}
+              width={9.07}
+            />
+          </Pressable>
+          <Pressable onPress={() => navigation.navigate("AddPhotos")}>
+            <Text style={styles.skip}>SKIP</Text>
+          </Pressable>
+        </View>
+        <View style={styles.container3}>
+          <Text style={styles.text}>Interests </Text>
+          <Text style={styles.info}>
+            Let everyone know what you’re interested in by adding it to your
+            profile.
+          </Text>
+          <InterestsChoices />
+        </View>
+        <Pressable
+          onPress={() => navigation.navigate("AddPhotos")}
+          style={styles.button}
+        >
+          <Text style={styles.buttonText}>CONTINUE 2/5</Text>
         </Pressable>
-        <Pressable onPress={() => navigation.navigate("AddPhotos")}>
-          <Text style={styles.skip}>SKIP</Text>
-        </Pressable>
-      </View>
-      <View style={styles.container3}>
-        <Text style={styles.text}>Interests </Text>
-        <Text style={styles.info}>
-          Let everyone know what you’re interested in by adding it to your
-          profile.
-        </Text>
-      </View>
-      <Pressable onPress={() => navigation.navigate("AddPhotos")} style={styles.button}>
-        <Text style={styles.buttonText}>CONTINUE 2/5</Text>
-      </Pressable>
+      </ScrollView>
     </View>
   );
 };
@@ -46,6 +57,7 @@ const styles = StyleSheet.create({
     paddingTop: 45,
     flex: 1,
     backgroundColor: Color.white,
+    paddingBottom: 20
   },
   container2: {
     paddingTop: 14.78,
@@ -79,9 +91,8 @@ const styles = StyleSheet.create({
     borderRadius: 67.18,
     paddingVertical: 14,
     backgroundColor: "#EBECEF",
-   marginHorizontal: 40,
-   
-    
+    marginHorizontal: 40,
+    marginTop: 20,
   },
   buttonText: {
     textAlign: "center",
