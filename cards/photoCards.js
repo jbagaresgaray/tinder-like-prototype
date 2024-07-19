@@ -1,4 +1,4 @@
-const photoCards = [
+const data = [
   {
     name: "Jaja",
     age: 20,
@@ -37,4 +37,4 @@ const photoCards = [
   },
 ];
 
-export default photoCards;
+export default data;

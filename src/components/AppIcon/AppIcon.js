@@ -21,6 +21,9 @@ import Plus from "./icons/Plus";
 import Information from "./icons/Information";
 import House_outline from "./icons/House_outline";
 import Location_outline from "./icons/Location_outline";
+import BlueStar from "./icons/BlueStar";
+import Heart from "./icons/Heart";
+import Lightning from "./icons/Lightning";
 
 const AppIcon = ({ name = "", size, color, width, height, ...rest }) => {
   const DEFAULT_SIZE = 13;
@@ -82,6 +85,12 @@ const AppIcon = ({ name = "", size, color, width, height, ...rest }) => {
       return <House_outline {...getProps()} />;
     case "location-outline":
       return <Location_outline {...getProps()} />;
+    case "blue-star":
+      return <BlueStar {...getProps()} />;
+    case "heart":
+      return <Heart {...getProps()} />;
+      case "lightning":
+        return <Lightning {...getProps()} />;
   }
 };
 
