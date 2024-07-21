@@ -4,7 +4,7 @@ import { LinearGradient } from "expo-linear-gradient";
 import Color from "../../Style/Color";
 import AppIcon from "./AppIcon/AppIcon";
 
-const photoImg = require("../../assets/Image.png");
+const photoImg = require("../assets/Image.png");
 
 const Phtotbg = () => {
   return (

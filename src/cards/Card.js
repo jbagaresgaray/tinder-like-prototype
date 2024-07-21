@@ -1,7 +1,7 @@
 import { Image, Pressable, StyleSheet, Text, View } from "react-native";
 import React from "react";
-import AppIcon from "../src/components/AppIcon/AppIcon";
-import Color from "../Style/Color";
+import AppIcon from "../components/AppIcon/AppIcon";
+import Color from "../../Style/Color";
 const photoCard = require("../assets/Photo.png");
 
 const Card = ({ name, photo, age }) => {

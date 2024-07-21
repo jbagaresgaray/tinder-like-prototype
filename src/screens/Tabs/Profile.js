@@ -12,7 +12,7 @@ import * as Progress from "react-native-progress";
 import AppIcon from "../../components/AppIcon/AppIcon";
 import LearnMore from "../../components/LearnMore";
 import { LinearGradient } from "expo-linear-gradient";
-const profilePic = require("../../../assets/profilepic.png");
+const profilePic = require("../../assets/profilepic.png");
 
 const Profile = () => {
   return (

@@ -9,7 +9,7 @@ import React from "react";
 import Color from "../../Style/Color";
 import Buttons from "../components/Buttons";
 
-const photoImage = require("../../assets/Photo.png");
+const photoImage = require("../assets/Photo.png");
 const Tutorial = ({ navigation }) => {
   return (
     <View style={styles.container}>

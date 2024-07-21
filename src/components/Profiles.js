@@ -1,6 +1,6 @@
 import { ImageBackground, StyleSheet, Text, View } from "react-native";
 import React from "react";
-const Image = require("../../assets/Image.png");
+const Image = require("../assets/Image.png");
 
 const Profiles = () => {
   return (

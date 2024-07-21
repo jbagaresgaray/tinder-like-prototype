@@ -2,9 +2,9 @@ import { Pressable, StyleSheet, Text, View } from "react-native";
 import React from "react";
 import Color from "../../../Style/Color";
 import Swiper from "react-native-deck-swiper";
-import data from "../../../cards/photoCards";
-import CardStyle from "../../../cards/CardStyle";
-import Card from "../../../cards/Card";
+import data from "../../cards/photoCards";
+import CardStyle from "../../cards/CardStyle";
+import Card from "../../cards/Card";
 import AppIcon from "../../components/AppIcon/AppIcon";
 
 const Home = () => {
