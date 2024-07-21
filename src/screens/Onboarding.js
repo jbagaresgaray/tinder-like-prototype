@@ -4,8 +4,9 @@ import React from "react";
 import AppIcon from "../components/AppIcon/AppIcon";
 import { LinearGradient } from "expo-linear-gradient";
 import Color from "../../Style/Color";
+import Buttons from "../components/Buttons";
 
-const Onboarding = ({navigation}) => {
+const Onboarding = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <LinearGradient
@@ -17,7 +18,12 @@ const Onboarding = ({navigation}) => {
         <AppIcon name="back" size={24} color={"white"} />
         <StatusBar style="auto" />
         <View style={styles.title}>
-          <AppIcon name="fire" color={Color.white} width={38.4} height={45.11} />
+          <AppIcon
+            name="fire"
+            color={Color.white}
+            width={38.4}
+            height={45.11}
+          />
           <AppIcon
             name="title"
             color={Color.white}
@@ -33,15 +39,21 @@ const Onboarding = ({navigation}) => {
           <Text style={styles.underlinedText}> Cookies Policy.</Text>
         </Text>
         <View style={styles.buttonView}>
-          <Pressable style={styles.button}>
-            <Text style={styles.buttonText}>SIGN IN WITH APPLE</Text>
-          </Pressable>
-          <Pressable onPress={() => navigation.navigate("CreateAccount")} style={styles.button}>
-            <Text style={styles.buttonText}>SIGN IN WITH FACEBOOK</Text>
-          </Pressable>
-          <Pressable style={styles.button}>
-            <Text style={styles.buttonText}>SIGN IN WITH PHONE NUMBER</Text>
-          </Pressable>
+          <Buttons
+            outline
+            label="SIGN IN WITH APPLE"
+            onPress={() => navigation.navigate("CreateAccount")}
+          />
+          <Buttons
+            outline
+            label="SIGN IN WITH FACEBOOK"
+            onPress={() => navigation.navigate("CreateAccount")}
+          />
+          <Buttons
+            outline
+            label="SIGN IN WITH PHONE NUMBER"
+            onPress={() => navigation.navigate("CreateAccount")}
+          />
         </View>
         <Pressable style={styles.footer}>
           <Text style={styles.footertext}>Trouble Signing In?</Text>

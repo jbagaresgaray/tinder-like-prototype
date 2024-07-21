@@ -17,6 +17,9 @@ const TabStack = () => {
       screenOptions={{
         headerTitle: "",
         tabBarShowLabel: false,
+        tabBarStyle: {
+          height: 62,
+        },
         headerBackground: () => (
           <View style={styles.container}>
             <AppIcon name="tabtitle" width={92.71} height={22} />

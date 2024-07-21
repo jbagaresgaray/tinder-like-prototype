@@ -1,75 +1,67 @@
-import { Pressable, StyleSheet, Text, TextInput, View } from "react-native";
+import {
+  Platform,
+  Pressable,
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
+} from "react-native";
 import React, { useRef, useState } from "react";
 import Color from "../../Style/Color";
+import Buttons from "../components/Buttons";
+
+import {
+  CodeField,
+  Cursor,
+  useBlurOnFulfill,
+  useClearByFocusCell,
+} from "react-native-confirmation-code-field";
+
+const CELL_COUNT = 6;
 
 const MyCode = ({ navigation }) => {
-  // const pin1ref = useRef(null);
-  // const pin2ref = useRef(null);
-  // const pin3ref = useRef(null);
-  // const pin4ref = useRef(null);
-  // const pin5ref = useRef(null);
-  // const pin6ref = useRef(null);
+  const [value, setValue] = useState("");
+  const ref = useBlurOnFulfill({ value, cellCount: CELL_COUNT });
+  const [props, getCellOnLayoutHandler] = useClearByFocusCell({
+    value,
+    setValue,
+  });
 
-  // const [pin1, setPin1] = useState(null);
-  // const [pin2, setPin2] = useState(null);
-  // const [pin3, setPin3] = useState(null);
-  // const [pin4, setPin4] = useState(null);
-  // const [pin5, setPin5] = useState(null);
-  // const [pin6, setPin6] = useState(null);
   return (
     <View style={styles.container}>
       <Text style={styles.text}>My Code is</Text>
       <Text style={styles.number}>00000000000</Text>
       <View style={styles.inputView}>
-        <View>
-          <TextInput
-            style={styles.input}
-            keyboardType="numeric"
-            maxLength={1}
-          />
-        </View>
-        <View>
-          <TextInput
-            style={styles.input}
-            keyboardType="numeric"
-            maxLength={1}
-          />
-        </View>
-        <View>
-          <TextInput
-            style={styles.input}
-            keyboardType="numeric"
-            maxLength={1}
-          />
-        </View>
-        <View>
-          <TextInput
-            style={styles.input}
-            keyboardType="numeric"
-            maxLength={1}
-          />
-        </View>
-        <View>
-          <TextInput
-            style={styles.input}
-            keyboardType="numeric"
-            maxLength={1}
-          />
-        </View>
-        <View>
-          <TextInput
-            style={styles.input}
-            keyboardType="numeric"
-            maxLength={1}
-          />
-        </View>
+        <CodeField
+          ref={ref}
+          {...props}
+          // Use `caretHidden={false}` when users can't paste a text value, because context menu doesn't appear
+          value={value}
+          onChangeText={setValue}
+          cellCount={CELL_COUNT}
+          rootStyle={styles.codeFieldRoot}
+          keyboardType="number-pad"
+          textContentType="oneTimeCode"
+          autoComplete={Platform.select({
+            android: "sms-otp",
+            default: "one-time-code",
+          })}
+          testID="my-code-input"
+          renderCell={({ index, symbol, isFocused }) => (
+            <Text
+              key={index}
+              style={[styles.cell, isFocused && styles.focusCell]}
+              onLayout={getCellOnLayoutHandler(index)}
+            >
+              {symbol || (isFocused ? <Cursor /> : null)}
+            </Text>
+          )}
+        />
       </View>
-      <Pressable
+      <Buttons
+        label="CONTINUE"
         onPress={() => navigation.navigate("MyFirstName")}
-        style={styles.button}
-      >
-        <Text style={styles.buttonText}>CONTINUE</Text>
-      </Pressable>
+      />
     </View>
   );
 };
@@ -89,7 +81,8 @@ const styles = StyleSheet.create({
   },
   number: {
     color: Color.black,
-    fontSize: 13.59,
+    fontSize: 19,
+    lineHeight: 24,
     fontFamily: "InterRegular",
     marginTop: 15.13,
   },
@@ -123,8 +116,18 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   inputView: {
-    flexDirection: "row",
-    gap: 5.37,
     marginTop: 79.79,
+  },
+  codeFieldRoot: { marginTop: 20 },
+  cell: {
+    width: 50,
+    lineHeight: 38,
+    fontSize: 24,
+    borderBottomWidth: 2,
+    borderColor: Color.gray,
+    textAlign: "center",
+  },
+  focusCell: {
+    borderColor: "#000",
   },
 });

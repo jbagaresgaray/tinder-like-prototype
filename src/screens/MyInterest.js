@@ -4,6 +4,7 @@ import * as Progress from "react-native-progress";
 import AppIcon from "../components/AppIcon/AppIcon";
 import Color from "../../Style/Color";
 import InterestsChoices from "../components/InterestsChoices";
+import Buttons from "../components/Buttons";
 
 const MyInterest = ({ navigation }) => {
   return (
@@ -39,13 +40,13 @@ const MyInterest = ({ navigation }) => {
           </Text>
           <InterestsChoices />
         </View>
-        <Pressable
-          onPress={() => navigation.navigate("AddPhotos")}
-          style={styles.button}
-        >
-          <Text style={styles.buttonText}>CONTINUE 2/5</Text>
-        </Pressable>
       </ScrollView>
+      <View style={styles.FooterView}>
+        <Buttons
+          label="CONTINUE 2/5"
+          onPress={() => navigation.navigate("AddPhotos")}
+        />
+      </View>
     </View>
   );
 };
@@ -57,7 +58,7 @@ const styles = StyleSheet.create({
     paddingTop: 45,
     flex: 1,
     backgroundColor: Color.white,
-    paddingBottom: 20
+    paddingBottom: 20,
   },
   container2: {
     paddingTop: 14.78,
@@ -87,17 +88,7 @@ const styles = StyleSheet.create({
 
     marginTop: 16,
   },
-  button: {
-    borderRadius: 67.18,
-    paddingVertical: 14,
-    backgroundColor: "#EBECEF",
-    marginHorizontal: 40,
-    marginTop: 20,
-  },
-  buttonText: {
-    textAlign: "center",
-    fontSize: 18.14,
-    fontFamily: "InterBold",
-    color: Color.gray,
+  FooterView: {
+    paddingHorizontal: 40,
   },
 });

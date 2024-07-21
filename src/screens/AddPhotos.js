@@ -4,6 +4,7 @@ import * as Progress from "react-native-progress";
 import AppIcon from "../components/AppIcon/AppIcon";
 import Color from "../../Style/Color";
 import Phtotbg from "../components/Phtotbg";
+import Buttons from "../components/Buttons";
 
 const AddPhotos = ({ navigation }) => {
   return (
@@ -27,12 +28,17 @@ const AddPhotos = ({ navigation }) => {
         <Text style={styles.text}>Add at least 2 photos to continue</Text>
       </View>
       <Phtotbg />
-      <Pressable
-        onPress={() => navigation.navigate("WelcomeScreen")}
-        style={styles.button}
-      >
-        <Text style={styles.buttonText}>CONTINUE</Text>
-      </Pressable>
+      <View
+        style={{
+          flex: 1,
+        }}
+      />
+      <View style={styles.FooterView}>
+        <Buttons
+          label="CONTINUE"
+          onPress={() => navigation.navigate("WelcomeScreen")}
+        />
+      </View>
     </View>
   );
 };
@@ -44,6 +50,7 @@ const styles = StyleSheet.create({
     paddingTop: 45,
     flex: 1,
     backgroundColor: Color.white,
+    position: "relative",
   },
   container2: {
     paddingTop: 14.78,
@@ -77,5 +84,9 @@ const styles = StyleSheet.create({
     fontSize: 18.14,
     fontFamily: "InterBold",
     color: Color.gray,
+  },
+  FooterView: {
+    marginHorizontal: 40,
+    marginBottom: 40,
   },
 });

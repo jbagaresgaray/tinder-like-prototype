@@ -1,10 +1,10 @@
-import { Pressable, StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 import Color from "../../Style/Color";
 import AppIcon from "../components/AppIcon/AppIcon";
-import { LinearGradient } from "expo-linear-gradient";
+import Buttons from "../components/Buttons";
 
-const CreateAccount = ({navigation}) => {
+const CreateAccount = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <View style={styles.icon}>
@@ -14,16 +14,10 @@ const CreateAccount = ({navigation}) => {
       <Text style={styles.text}>
         We couldn’t find a Tinder account connected to that Facebook Account.
       </Text>
-      <LinearGradient
-        colors={["#EA4080", "#EE805F"]}
-        start={[0, 0]}
-          end={[1, 1]}
-        style={styles.buttonL}
-      >
-        <Pressable onPress={() => navigation.navigate("MyNumber")} style={styles.button}>
-          <Text style={styles.buttonText}>CREATE NEW ACCOUNT</Text>
-        </Pressable>
-      </LinearGradient>
+      <Buttons
+        label="CREATE NEW ACCOUNT"
+        onPress={() => navigation.navigate("MyNumber")}
+      />
     </View>
   );
 };
@@ -52,7 +46,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
     fontFamily: "InterMedium",
     lineHeight: 25.2,
-    marginTop: 52
+    marginTop: 52,
   },
   button: {
     paddingVertical: 14,

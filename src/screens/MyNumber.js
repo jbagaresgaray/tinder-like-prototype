@@ -1,10 +1,12 @@
 import { Pressable, StyleSheet, Text, TextInput, View } from "react-native";
 import React, { useState } from "react";
 import Color from "../../Style/Color";
-import { LinearGradient } from "expo-linear-gradient";
+// import { CountryPicker } from "react-native-country-codes-picker";
+import Buttons from "../components/Buttons";
 import CountryPicker from "react-native-country-picker-modal";
 
 const MyNumber = ({ navigation }) => {
+  const [show, setShow] = useState(false);
   const [country, setCountry] = useState({
     cca2: "US",
     currency: ["USD"],
@@ -32,6 +34,8 @@ const MyNumber = ({ navigation }) => {
         <CountryPicker
           withFlag
           withCallingCode
+          withFilter
+          withFlagButton
           onSelect={onSelect}
           countryCode={country?.cca2}
           withCountryNameButton={false}
@@ -46,14 +50,13 @@ const MyNumber = ({ navigation }) => {
             </Pressable>
           )}
         />
-        {/* {country && (
-          <>
-            <Text>{country.cca2}</Text>
-            <Text>{country.callingCode}</Text>
-          </>
-        )} */}
         <View style={styles.input}>
-          <TextInput placeholder="00000000000" textAlignVertical="top" keyboardType="numeric" />
+          <TextInput
+            placeholder="00000000000"
+            textAlignVertical="top"
+            keyboardType="numeric"
+            style={styles.textInput}
+          />
         </View>
       </View>
       <Text style={styles.text}>
@@ -65,19 +68,7 @@ const MyNumber = ({ navigation }) => {
         </Text>
       </Text>
 
-      <LinearGradient
-        colors={["#EA4080", "#EE805F"]}
-        start={[0, 0]}
-        end={[1, 1]}
-        style={styles.buttonL}
-      >
-        <Pressable
-          onPress={() => navigation.navigate("MyCode")}
-          style={styles.button}
-        >
-          <Text style={styles.buttonText}>CONTINUE</Text>
-        </Pressable>
-      </LinearGradient>
+      <Buttons label="CONTINUE" onPress={() => navigation.navigate("MyCode")} />
     </View>
   );
 };
@@ -94,11 +85,12 @@ const styles = StyleSheet.create({
     color: Color.black,
     fontSize: 38.29,
     fontFamily: "InterSemiBold",
+    marginBottom: 15,
   },
   input: {
     borderBottomWidth: 1,
     flex: 1,
-    fontSize: 15
+    fontSize: 15,
   },
   text: {
     color: Color.gray,
@@ -106,26 +98,21 @@ const styles = StyleSheet.create({
     fontFamily: "InterRegular",
     marginTop: 44,
   },
+  textInput: {
+    fontSize: 19,
+    lineHeight: 23,
+    fontFamily: "InterRegular",
+    color: Color.black1,
+  },
   underlinedtext: {
     color: Color.black,
     textDecorationLine: "underline",
   },
-  buttonL: {
-    borderRadius: 67.18,
-    marginTop: 100,
-  },
-  button: {
-    paddingVertical: 14,
-  },
-  buttonText: {
-    textAlign: "center",
-    fontSize: 18.14,
-    fontFamily: "InterBold",
-    color: Color.white,
-  },
+
   callingcode: {
     color: Color.black1,
-    fontSize: 15,
+    fontSize: 16,
+    lineHeight: 18,
     fontFamily: "InterRegular",
     borderColor: Color.gray,
   },

@@ -1,8 +1,8 @@
-import { Pressable, StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 import Color from "../../Style/Color";
 import AppIcon from "../components/AppIcon/AppIcon";
-import { LinearGradient } from "expo-linear-gradient";
+import Buttons from "../components/Buttons";
 
 const WelcomeScreen = ({ navigation }) => {
   return (
@@ -29,7 +29,7 @@ const WelcomeScreen = ({ navigation }) => {
           </View>
           <Text style={styles.graytext}>
             Don’t be too quick to give out personal information.{" "}
-            <Text style={{textDecorationLine: "underline"}}>Date Safely</Text>
+            <Text style={{ textDecorationLine: "underline" }}>Date Safely</Text>
           </Text>
         </View>
         <View>
@@ -48,19 +48,17 @@ const WelcomeScreen = ({ navigation }) => {
           </View>
           <Text style={styles.graytext}>Always report bad behavior.</Text>
         </View>
-        <LinearGradient
-          colors={["#EA4080", "#EE805F"]}
-          start={[1, 1]}
-          end={[0, 0]}
-          style={styles.buttonL}
-        >
-          <Pressable
-            onPress={() => navigation.navigate("Tutorial")}
-            style={styles.button}
-          >
-            <Text style={styles.buttonText}>I AGREE</Text>
-          </Pressable>
-        </LinearGradient>
+      </View>
+      <View
+        style={{
+          flex: 1,
+        }}
+      />
+      <View style={styles.FooterView}>
+        <Buttons
+          label="I AGREE"
+          onPress={() => navigation.navigate("Tutorial")}
+        />
       </View>
     </View>
   );
@@ -111,17 +109,8 @@ const styles = StyleSheet.create({
     fontSize: 14,
     lineHeight: 24,
   },
-  button: {
-    paddingVertical: 14,
-  },
-  buttonL: {
-    borderRadius: 67.18,
-    marginTop: 100,
-  },
-  buttonText: {
-    textAlign: "center",
-    fontSize: 18.14,
-    fontFamily: "InterBold",
-    color: Color.white,
+  FooterView: {
+    marginBottom: 40,
+    marginHorizontal: 40,
   },
 });

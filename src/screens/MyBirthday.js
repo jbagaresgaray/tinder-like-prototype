@@ -1,11 +1,14 @@
 import { Pressable, StyleSheet, Text, TextInput, View } from "react-native";
 import React from "react";
 import * as Progress from "react-native-progress";
-import { LinearGradient } from "expo-linear-gradient";
 import AppIcon from "../components/AppIcon/AppIcon";
 import Color from "../../Style/Color";
+import MaskInput, { Masks } from "react-native-mask-input";
+import Buttons from "../components/Buttons";
 
 const MyBDay = ({ navigation }) => {
+  const [myBDay, setMyBDay] = React.useState("");
+
   return (
     <View style={styles.container}>
       <Progress.Bar
@@ -15,7 +18,7 @@ const MyBDay = ({ navigation }) => {
         borderRadius={0}
         unfilledColor="#D9D9D9"
         height={4.7}
-        style={styles.bar}
+        // style={styles.bar}
       />
       <View style={styles.container2}>
         <Pressable onPress={() => navigation.goBack()}>
@@ -23,79 +26,26 @@ const MyBDay = ({ navigation }) => {
         </Pressable>
         <Text style={styles.text}>My{"\n"}birthday is</Text>
         <View style={styles.inputView}>
-          <View>
-            <TextInput
-              style={styles.input}
-              placeholder="Y"
-              keyboardType="numeric"
-              maxLength={1}
-            />
-          </View>
-          <View>
-            <TextInput
-              style={styles.input}
-              placeholder="Y"
-              keyboardType="numeric"
-              maxLength={1}
-            />
-          </View>
-          <View>
-            <TextInput
-              style={styles.input}
-              placeholder="Y"
-              keyboardType="numeric"
-              maxLength={1}
-            />
-          </View>
-          <View>
-            <TextInput
-              style={styles.input}
-              placeholder="Y"
-              keyboardType="numeric"
-              maxLength={1}
-            />
-          </View>
-          <View>
-            <TextInput
-              style={styles.input}
-              placeholder="M"
-              keyboardType="numeric"
-              maxLength={1}
-            />
-          </View>
-          <View>
-            <TextInput
-              style={styles.input}
-              placeholder="M"
-              keyboardType="numeric"
-              maxLength={1}
-            />
-          </View>
-          <View>
-            <TextInput
-              style={styles.input}
-              placeholder="D"
-              keyboardType="numeric"
-              maxLength={1}
-            />
-          </View>
-          <View>
-            <TextInput
-              style={styles.input}
-              placeholder="D"
-              keyboardType="numeric"
-              maxLength={1}
-            />
-          </View>
+          <MaskInput
+            style={styles.input}
+            placeholder="YYYY/MM/DD"
+            value={myBDay}
+            mask={Masks.DATE_YYYYMMDD}
+            onChangeText={(masked, unmasked) => {
+              setMyBDay(masked); // you can use the unmasked value as well
+
+              // assuming you typed "9" all the way:
+              console.log(masked); // (99) 99999-9999
+              console.log(unmasked); // 99999999999
+            }}
+          />
         </View>
         <Text style={styles.info}>Your age will be public.</Text>
 
-        <Pressable
+        <Buttons
+          label="CONTINUE"
           onPress={() => navigation.navigate("MyGender")}
-          style={styles.button}
-        >
-          <Text style={styles.buttonText}>CONTINUE</Text>
-        </Pressable>
+        />
       </View>
     </View>
   );
@@ -107,7 +57,7 @@ const styles = StyleSheet.create({
   container: {
     paddingTop: 45,
     flex: 1,
-    backgroundColor: Color.white
+    backgroundColor: Color.white,
   },
   container2: {
     paddingTop: 14.78,
@@ -119,30 +69,6 @@ const styles = StyleSheet.create({
     fontFamily: "InterSemiBold",
     paddingLeft: 50,
   },
-  input: {
-    borderBottomWidth: 1,
-    borderColor: Color.gray,
-    alignItems: "center",
-    marginTop: 74.69,
-    marginLeft: 50,
-    marginRight: 80.62,
-  },
-  button: {
-    paddingVertical: 14,
-    borderRadius: 67.18,
-    backgroundColor: "#EBECEF",
-    marginTop: 38.33,
-  },
-  buttonL: {
-    borderRadius: 67.18,
-    marginTop: 100,
-  },
-  buttonText: {
-    textAlign: "center",
-    fontSize: 18.14,
-    fontFamily: "InterBold",
-    color: Color.gray,
-  },
   info: {
     color: Color.gray,
     fontSize: 13.19,
@@ -152,13 +78,10 @@ const styles = StyleSheet.create({
     marginTop: 12.12,
   },
   input: {
-    borderBottomWidth: 2,
-    width: 20,
     borderColor: Color.gray,
     color: Color.black,
-    fontSize: 19.1,
+    fontSize: 22,
     fontFamily: "InterRegular",
-    textAlign: "center",
   },
   inputView: {
     flexDirection: "row",

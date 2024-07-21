@@ -1,7 +1,8 @@
-import { Pressable, StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import React, { useState } from "react";
 import Color from "../../Style/Color";
 import CheckBox from "react-native-check-box";
+import Buttons from "./Buttons";
 
 const Footer = ({ navigation }) => {
   const [toggleCheckBox, setToggleCheckBox] = useState(false);
@@ -18,12 +19,11 @@ const Footer = ({ navigation }) => {
         />
         <Text style={styles.footertext}>Show my gender on my profile</Text>
       </View>
-      <Pressable
+
+      <Buttons
+        label="CONTINUE"
         onPress={() => navigation.navigate("MyInterest")}
-        style={styles.button}
-      >
-        <Text style={styles.buttonText}>CONTINUE</Text>
-      </Pressable>
+      />
     </View>
   );
 };
@@ -33,7 +33,6 @@ export default Footer;
 const styles = StyleSheet.create({
   container: {
     marginTop: 100,
-    alignItems: "center",
     gap: 37,
   },
   container2: {
@@ -45,18 +44,6 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
-  },
-  button: {
-    borderRadius: 67.18,
-    paddingVertical: 14,
-    backgroundColor: "#EBECEF",
-    paddingHorizontal: 108.16,
-  },
-  buttonText: {
-    textAlign: "center",
-    fontSize: 18.14,
-    fontFamily: "InterBold",
-    color: Color.gray,
   },
   footertext: {
     color: Color.black,

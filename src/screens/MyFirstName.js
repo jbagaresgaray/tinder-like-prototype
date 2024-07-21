@@ -1,9 +1,18 @@
-import { Pressable, StyleSheet, Text, TextInput, View } from "react-native";
+import {
+  Dimensions,
+  Pressable,
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
+} from "react-native";
 import React from "react";
 import * as Progress from "react-native-progress";
 import AppIcon from "../components/AppIcon/AppIcon";
 import Color from "../../Style/Color";
-import { LinearGradient } from "expo-linear-gradient";
+import Buttons from "../components/Buttons";
+
+const { width } = Dimensions.get("window");
 
 const MyFirstName = ({ navigation }) => {
   return (
@@ -27,19 +36,10 @@ const MyFirstName = ({ navigation }) => {
           This is how it will appear in Tinder and you will not be able to
           change it
         </Text>
-        <LinearGradient
-          colors={["#EA4080", "#EE805F"]}
-          start={[0, 0]}
-          end={[1, 1]}
-          style={styles.buttonL}
-        >
-          <Pressable
-            onPress={() => navigation.navigate("MyBDay")}
-            style={styles.button}
-          >
-            <Text style={styles.buttonText}>CONTINUE</Text>
-          </Pressable>
-        </LinearGradient>
+        <Buttons
+          label="CONTINUE"
+          onPress={() => navigation.navigate("MyBDay")}
+        />
       </View>
     </View>
   );
@@ -64,25 +64,17 @@ const styles = StyleSheet.create({
     textAlign: "left",
   },
   input: {
-    borderBottomWidth: 1,
+    borderBottomWidth: 2,
     borderColor: Color.gray,
     alignItems: "center",
     marginTop: 74.69,
-    marginLeft: 50,
-    marginRight: 80.62,
-  },
-  button: {
-    paddingVertical: 14,
-  },
-  buttonL: {
-    borderRadius: 67.18,
-    marginTop: 100,
-  },
-  buttonText: {
-    textAlign: "center",
-    fontSize: 18.14,
-    fontFamily: "InterBold",
-    color: Color.white,
+    // marginLeft: 50,
+    // marginRight: 80.62,
+
+    fontSize: 19,
+    lineHeight: 23,
+    fontFamily: "InterSemiBold",
+    width: width - 60,
   },
   belowText: {
     marginTop: 12.43,
