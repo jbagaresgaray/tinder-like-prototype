@@ -7,7 +7,6 @@ import {
 } from "react-native";
 import React from "react";
 import Color from "../../Style/Color";
-import { LinearGradient } from "expo-linear-gradient";
 import Buttons from "../components/Buttons";
 
 const photoImage = require("../../assets/Photo.png");

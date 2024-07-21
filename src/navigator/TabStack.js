@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from "react-native";
+import { Platform, StyleSheet, Text, View } from "react-native";
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Home from "../screens/Tabs/Home";
@@ -18,7 +18,8 @@ const TabStack = () => {
         headerTitle: "",
         tabBarShowLabel: false,
         tabBarStyle: {
-          height: 62,
+          paddingVertical: Platform.OS === "ios" ? 16 : 0,
+          height: Platform.OS === "android" ? 62 : 72,
         },
         headerBackground: () => (
           <View style={styles.container}>

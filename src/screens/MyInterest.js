@@ -1,14 +1,22 @@
-import { Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
+import {
+  Platform,
+  Pressable,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
 import React from "react";
 import * as Progress from "react-native-progress";
 import AppIcon from "../components/AppIcon/AppIcon";
 import Color from "../../Style/Color";
 import InterestsChoices from "../components/InterestsChoices";
 import Buttons from "../components/Buttons";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const MyInterest = ({ navigation }) => {
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <Progress.Bar
         progress={0.7}
         color="#EA4080"
@@ -47,7 +55,7 @@ const MyInterest = ({ navigation }) => {
           onPress={() => navigation.navigate("AddPhotos")}
         />
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 
@@ -55,7 +63,7 @@ export default MyInterest;
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: 45,
+    paddingTop: Platform.OS === "android" ? 45 : 0,
     flex: 1,
     backgroundColor: Color.white,
     paddingBottom: 20,
@@ -90,5 +98,6 @@ const styles = StyleSheet.create({
   },
   FooterView: {
     paddingHorizontal: 40,
+    marginTop: 40,
   },
 });

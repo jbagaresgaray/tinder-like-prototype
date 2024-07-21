@@ -58,10 +58,16 @@ const MyCode = ({ navigation }) => {
           )}
         />
       </View>
-      <Buttons
-        label="CONTINUE"
-        onPress={() => navigation.navigate("MyFirstName")}
-      />
+      <View
+        style={{
+          marginTop: 100,
+        }}
+      >
+        <Buttons
+          label="CONTINUE"
+          onPress={() => navigation.navigate("MyFirstName")}
+        />
+      </View>
     </View>
   );
 };

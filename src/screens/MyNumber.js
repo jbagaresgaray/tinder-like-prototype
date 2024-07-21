@@ -67,8 +67,16 @@ const MyNumber = ({ navigation }) => {
           Learn what happens when your number changes.
         </Text>
       </Text>
-
-      <Buttons label="CONTINUE" onPress={() => navigation.navigate("MyCode")} />
+      <View
+        style={{
+          marginTop: 100,
+        }}
+      >
+        <Buttons
+          label="CONTINUE"
+          onPress={() => navigation.navigate("MyCode")}
+        />
+      </View>
     </View>
   );
 };

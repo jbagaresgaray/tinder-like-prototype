@@ -14,9 +14,6 @@ const Home = () => {
   };
   return (
     <View style={styles.container}>
-      {/* <View>
-        <AppIcon name="gradientx" />
-      </View> */}
       <Swiper
         cardVerticalMargin={30}
         cardHorizontalMargin={5}

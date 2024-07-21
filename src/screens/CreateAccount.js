@@ -14,10 +14,16 @@ const CreateAccount = ({ navigation }) => {
       <Text style={styles.text}>
         We couldn’t find a Tinder account connected to that Facebook Account.
       </Text>
-      <Buttons
-        label="CREATE NEW ACCOUNT"
-        onPress={() => navigation.navigate("MyNumber")}
-      />
+      <View
+        style={{
+          marginTop: 100,
+        }}
+      >
+        <Buttons
+          label="CREATE NEW ACCOUNT"
+          onPress={() => navigation.navigate("MyNumber")}
+        />
+      </View>
     </View>
   );
 };

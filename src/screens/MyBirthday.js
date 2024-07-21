@@ -1,16 +1,24 @@
-import { Pressable, StyleSheet, Text, TextInput, View } from "react-native";
+import {
+  Platform,
+  Pressable,
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
+} from "react-native";
 import React from "react";
 import * as Progress from "react-native-progress";
 import AppIcon from "../components/AppIcon/AppIcon";
 import Color from "../../Style/Color";
 import MaskInput, { Masks } from "react-native-mask-input";
 import Buttons from "../components/Buttons";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const MyBDay = ({ navigation }) => {
   const [myBDay, setMyBDay] = React.useState("");
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <Progress.Bar
         progress={0.2}
         color="#EA4080"
@@ -41,13 +49,18 @@ const MyBDay = ({ navigation }) => {
           />
         </View>
         <Text style={styles.info}>Your age will be public.</Text>
-
-        <Buttons
-          label="CONTINUE"
-          onPress={() => navigation.navigate("MyGender")}
-        />
+        <View
+          style={{
+            marginTop: 100,
+          }}
+        >
+          <Buttons
+            label="CONTINUE"
+            onPress={() => navigation.navigate("MyGender")}
+          />
+        </View>
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 
@@ -55,7 +68,7 @@ export default MyBDay;
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: 45,
+    paddingTop: Platform.OS === "android" ? 45 : 0,
     flex: 1,
     backgroundColor: Color.white,
   },

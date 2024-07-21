@@ -9,6 +9,7 @@ import {
 import { useFonts } from "expo-font";
 import { NavigationContainer } from "@react-navigation/native";
 import MainStack from "./src/navigator/MainStack";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 
 export default function App() {
   let [fontsLoaded] = useFonts({
@@ -24,7 +25,9 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <MainStack />
+      <SafeAreaProvider>
+        <MainStack />
+      </SafeAreaProvider>
     </NavigationContainer>
   );
 }

@@ -31,7 +31,6 @@ export default Buttons;
 const styles = StyleSheet.create({
   buttonL: {
     borderRadius: 67.18,
-    marginTop: 100,
     overflow: "hidden",
   },
   button: {

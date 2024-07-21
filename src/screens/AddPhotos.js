@@ -1,14 +1,15 @@
-import { Pressable, StyleSheet, Text, View } from "react-native";
+import { Platform, Pressable, StyleSheet, Text, View } from "react-native";
 import React from "react";
 import * as Progress from "react-native-progress";
 import AppIcon from "../components/AppIcon/AppIcon";
 import Color from "../../Style/Color";
 import Phtotbg from "../components/Phtotbg";
 import Buttons from "../components/Buttons";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const AddPhotos = ({ navigation }) => {
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <Progress.Bar
         progress={0.8}
         color="#EA4080"
@@ -39,7 +40,7 @@ const AddPhotos = ({ navigation }) => {
           onPress={() => navigation.navigate("WelcomeScreen")}
         />
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 
@@ -47,7 +48,7 @@ export default AddPhotos;
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: 45,
+    paddingTop: Platform.OS === "android" ? 45 : 0,
     flex: 1,
     backgroundColor: Color.white,
     position: "relative",

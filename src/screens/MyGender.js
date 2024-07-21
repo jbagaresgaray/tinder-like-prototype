@@ -1,15 +1,14 @@
-import { Pressable, StyleSheet, Text, View } from "react-native";
+import { Platform, Pressable, StyleSheet, Text, View } from "react-native";
 import React from "react";
-import CheckBox from "react-native-check-box";
 
 import * as Progress from "react-native-progress";
-import { LinearGradient } from "expo-linear-gradient";
 import AppIcon from "../components/AppIcon/AppIcon";
 import Color from "../../Style/Color";
 import Footer from "../components/Footer";
+import { SafeAreaView } from "react-native-safe-area-context";
 const MyGender = ({ navigation }) => {
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <Progress.Bar
         progress={0.4}
         color="#EA4080"
@@ -32,9 +31,9 @@ const MyGender = ({ navigation }) => {
         <Pressable style={styles.buttonL}>
           <Text style={styles.buttonText}>MAN</Text>
         </Pressable>
-        <Footer navigation={navigation} />
       </View>
-    </View>
+      <Footer navigation={navigation} />
+    </SafeAreaView>
   );
 };
 
@@ -42,9 +41,9 @@ export default MyGender;
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: 45,
     flex: 1,
     backgroundColor: Color.white,
+    paddingTop: Platform.OS === "android" ? 45 : 0,
   },
   container2: {
     paddingTop: 14.78,
@@ -86,8 +85,9 @@ const styles = StyleSheet.create({
   },
   buttons: {
     gap: 20,
-    marginHorizontal: 40.62,
+    marginHorizontal: 40,
     marginTop: 90,
+    flex: 1,
   },
   button: {
     borderRadius: 67.18,
@@ -95,12 +95,6 @@ const styles = StyleSheet.create({
     backgroundColor: "#00000010",
     marginHorizontal: 40,
     marginTop: 20,
-  },
-  buttonText: {
-    textAlign: "center",
-    fontSize: 18.14,
-    fontFamily: "InterBold",
-    color: Color.gray,
   },
   footertext: {
     color: Color.black,

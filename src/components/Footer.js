@@ -32,8 +32,9 @@ export default Footer;
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 100,
     gap: 37,
+    marginHorizontal: 40,
+    marginBottom: 40,
   },
   container2: {
     flexDirection: "row",
